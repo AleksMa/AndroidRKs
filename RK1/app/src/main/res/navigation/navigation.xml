@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/hostFragment"
-        android:name="com.bmstu.iu9.swimrunners.androidrk1.ListFragment"
+        android:name="com.bmstu.iu9.swimrunners.androidrk1.fragments.ListFragment"
         android:label="fragment_host"
         tools:layout="@layout/fragment_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.bmstu.iu9.swimrunners.androidrk1.ExtraInfoFragment"
+        android:name="com.bmstu.iu9.swimrunners.androidrk1.fragments.ExtraInfoFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_extra_info" />
 </navigation>

@@ -1,10 +1,11 @@
-package com.bmstu.iu9.swimrunners.androidrk1
+package com.bmstu.iu9.swimrunners.androidrk1.fragments
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.bmstu.iu9.swimrunners.androidrk1.R
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

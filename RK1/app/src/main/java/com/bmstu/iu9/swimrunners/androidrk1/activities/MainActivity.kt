@@ -1,14 +1,14 @@
-package com.bmstu.iu9.swimrunners.androidrk1
+package com.bmstu.iu9.swimrunners.androidrk1.activities
 
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.bmstu.iu9.swimrunners.androidrk1.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
