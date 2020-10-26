@@ -41,7 +41,7 @@
     <string name="extra_info_fragment_title">Day extra info</string>
 
     <!--    Extra info-->
-    <string name="extra_info_max_title">Highest price per day:   </string>
-    <string name="extra_info_min_title">Lowest price per day: </string>
-    <string name="extra_info_trades_title">Trades count per day: </string>
+    <string name="extra_info_max_title">Highest price per day:</string>
+    <string name="extra_info_min_title">Lowest price per day:</string>
+    <string name="extra_info_trades_title">Trades count per day:</string>
 </resources>

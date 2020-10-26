@@ -11,6 +11,7 @@
         android:id="@+id/linkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_m"
         android:layout_marginBottom="5dp"
         android:text="@string/link_title"
         android:textColor="#2196F3" />

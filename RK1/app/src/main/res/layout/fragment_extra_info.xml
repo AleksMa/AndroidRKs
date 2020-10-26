@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="@dimen/spacing_m"
     tools:context=".fragments.ExtraInfoFragment">
 
     <TextView
@@ -13,26 +14,64 @@
         android:padding="@dimen/spacing_s"
         android:textSize="@dimen/text_size" />
 
-    <TextView
-        android:id="@+id/extra_info_max"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_xs"
-        android:textSize="@dimen/text_size_s" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/extra_info_min"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/extra_info_max_title"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/extra_info_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_xs"
+            android:textSize="@dimen/text_size_s" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_xs"
-        android:textSize="@dimen/text_size_s" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/extra_info_trades"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/extra_info_min_title"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/extra_info_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_xs"
+            android:textSize="@dimen/text_size_s" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_xs"
-        android:textSize="@dimen/text_size_s" />
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/extra_info_trades_title"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/extra_info_trades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_xs"
+            android:textSize="@dimen/text_size_s" />
+
+    </LinearLayout>
 
 </LinearLayout>
