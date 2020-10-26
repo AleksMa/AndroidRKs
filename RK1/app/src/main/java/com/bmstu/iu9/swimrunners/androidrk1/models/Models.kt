@@ -14,10 +14,10 @@ data class RawDayTrades(
 
 data class DayTrades(
     val date: String,
-    val priceOpen: Int,
-    val priceHigh: Int,
-    val priceLow: Int,
-    val priceClose: Int,
-    val volumeTraded: Int,
+    val priceOpen: String,
+    val priceHigh: String,
+    val priceLow: String,
+    val priceClose: String,
+    val volumeTraded: String,
     val tradesCount: Int,
 )

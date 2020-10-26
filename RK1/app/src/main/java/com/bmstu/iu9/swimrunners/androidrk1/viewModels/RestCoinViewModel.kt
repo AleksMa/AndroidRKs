@@ -1,14 +1,15 @@
 package com.bmstu.iu9.swimrunners.androidrk1.viewModels
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import androidx.preference.PreferenceManager
+import com.bmstu.iu9.swimrunners.androidrk1.R
 import com.bmstu.iu9.swimrunners.androidrk1.models.DayTrades
 import com.bmstu.iu9.swimrunners.androidrk1.services.RestCoinApi
 import kotlinx.coroutines.launch
-import java.lang.Exception
-import kotlin.math.roundToInt
-import com.bmstu.iu9.swimrunners.androidrk1.R
 
 class RestCoinViewModel(app: Application) : AndroidViewModel(app) {
     private val _timeseries = MutableLiveData<List<DayTrades>>()
@@ -44,11 +45,11 @@ class RestCoinViewModel(app: Application) : AndroidViewModel(app) {
                 _timeseries.postValue(rawTimeseries.map { rawDayTrades ->
                     DayTrades(
                         date = mapDate(rawDayTrades.day),
-                        priceOpen = rawDayTrades.priceOpen.roundToInt(),
-                        priceHigh = rawDayTrades.priceHigh.roundToInt(),
-                        priceLow = rawDayTrades.priceLow.roundToInt(),
-                        priceClose = rawDayTrades.priceClose.roundToInt(),
-                        volumeTraded = rawDayTrades.volumeTraded.roundToInt(),
+                        priceOpen = String.format("%.3f", rawDayTrades.priceOpen),
+                        priceHigh = String.format("%.3f", rawDayTrades.priceHigh),
+                        priceLow = String.format("%.3f", rawDayTrades.priceLow),
+                        priceClose = String.format("%.3f", rawDayTrades.priceClose),
+                        volumeTraded = String.format("%.3f", rawDayTrades.volumeTraded),
                         tradesCount = rawDayTrades.tradesCount
                     )
                 })
