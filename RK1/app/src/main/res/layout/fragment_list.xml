@@ -7,6 +7,15 @@
     android:padding="@dimen/spacing_m"
     tools:context=".fragments.ListFragment">
 
+
+    <TextView
+        android:id="@+id/linkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/link_title"
+        android:textColor="#2196F3"
+        android:layout_marginBottom="5dp"/>
+
     <TextView
         android:id="@+id/error"
         android:layout_width="wrap_content"

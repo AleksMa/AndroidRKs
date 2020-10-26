@@ -1,23 +1,30 @@
 package com.bmstu.iu9.swimrunners.androidrk1.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bmstu.iu9.swimrunners.androidrk1.R
 import com.bmstu.iu9.swimrunners.androidrk1.databinding.FragmentListBinding
 import com.bmstu.iu9.swimrunners.androidrk1.databinding.ListItemBinding
 import com.bmstu.iu9.swimrunners.androidrk1.models.DayTrades
 import com.bmstu.iu9.swimrunners.androidrk1.viewModels.RestCoinViewModel
+import java.util.logging.Level.INFO
 
 class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    private val vm: RestCoinViewModel by activityViewModels()
+    val vm: RestCoinViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +37,10 @@ class ListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.linkText.setOnClickListener {
+            openWebPage(getString(R.string.link_value))
+        }
+
         binding.tradesList.layoutManager = LinearLayoutManager(context)
         binding.tradesList.adapter = TradesAdapter()
 
@@ -66,15 +77,14 @@ class ListFragment : Fragment() {
         private val dateTextView = binding.date
         private val priceHighTextView = binding.priceHigh
 
-        fun bind(dayTrade: DayTrades) {
+        fun bind(dayTrade: DayTrades, position: Int) {
             dateTextView.text = dayTrade.date
             priceHighTextView.text = dayTrade.priceHigh.toString()
 
-            // TODO: Add navigation
-//            root.setOnClickListener { v ->
-//                val action = ListFragmentDirections.actionListFragmentToArtistFragment(artist.id)
-//                v.findNavController().navigate(action)
-//            }
+            root.setOnClickListener { v ->
+                val action = ListFragmentDirections.actionHostFragmentToSecondFragment(position)
+                v.findNavController().navigate(action)
+            }
         }
     }
 
@@ -93,11 +103,19 @@ class ListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: TradesHolder, position: Int) {
-            holder.bind(timeseries[position])
+            holder.bind(timeseries[position], position)
         }
 
         override fun getItemCount(): Int {
             return timeseries.size
+        }
+    }
+
+    private fun openWebPage(url: String) {
+        val webpage: Uri = Uri.parse(url)
+        val intent = Intent(Intent.ACTION_VIEW, webpage)
+        if (activity?.packageManager?.let { intent.resolveActivity(it) } != null) {
+            startActivity(intent)
         }
     }
 }
