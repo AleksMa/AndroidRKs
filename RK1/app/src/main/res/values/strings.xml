@@ -16,4 +16,26 @@
     <string name="crypto_doge_key">DogeCoin</string>
     <string name="crypto_ltc_key">Litecoin</string>
 
+    <!-- Preference Titles -->
+    <string name="currency_preference_header">Currency settings</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <!--    Menu-->
+    <string name="settings_menu_item">SETTINGS</string>
+    <string name="currency_preference_key">currency_preference</string>
+    <string name="currency_preference_title">Exchange currency</string>
+    <string name="days_preference_key">days_preference</string>
+    <string name="days_preference_title">Days visible</string>
+
 </resources>
