@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/hostFragment">
+
+    <fragment
+        android:id="@+id/hostFragment"
+        android:name="com.bmstu.iu9.swimrunners.androidrk1.fragments.ListFragment"
+        android:label="@string/list_fragment_title"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_hostFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.bmstu.iu9.swimrunners.androidrk1.fragments.ExtraInfoFragment"
+        android:label="@string/extra_info_fragment_title"
+        tools:layout="@layout/fragment_extra_info">
+
+        <argument
+            android:name="index"
+            app:argType="integer" />
+    </fragment>
+</navigation>

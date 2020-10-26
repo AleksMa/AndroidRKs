@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="currency_names">
+        <item>@string/currency_usd</item>
+        <item>@string/currency_eur</item>
+        <item>@string/currency_rub</item>
+    </array>
+
+    <array name="currency_values">
+        <item>@string/currency_usd</item>
+        <item>@string/currency_eur</item>
+        <item>@string/currency_rub</item>
+    </array>
+
+
+    <array name="crypto_names">
+        <item>@string/crypto_btc_key</item>
+        <item>@string/crypto_doge_key</item>
+        <item>@string/crypto_ltc_key</item>
+    </array>
+
+    <array name="crypto_values">
+        <item>@string/crypto_btc</item>
+        <item>@string/crypto_doge</item>
+        <item>@string/crypto_ltc</item>
+    </array>
+</resources>
