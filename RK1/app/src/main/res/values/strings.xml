@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">AndroidRK1</string>
+
+
+    <!--    Валюты -->
+    <string name="currency_usd">USD</string>
+    <string name="currency_eur">EUR</string>
+    <string name="currency_rub">RUB</string>
+
+    <!--    Криптовалюты -->
+    <string name="crypto_btc">BTC</string>
+    <string name="crypto_doge">DOGE</string>
+    <string name="crypto_ltc">LTC</string>
+
+    <string name="crypto_btc_key">Bitcoin</string>
+    <string name="crypto_doge_key">DogeCoin</string>
+    <string name="crypto_ltc_key">Litecoin</string>
+
 </resources>
