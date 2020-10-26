@@ -16,4 +16,13 @@
     <string name="crypto_doge_key">DogeCoin</string>
     <string name="crypto_ltc_key">Litecoin</string>
 
+    <!--    Menu-->
+    <string name="settings_menu_item">SETTINGS</string>
+
+    <!--    Preferences-->
+    <string name="currency_preference_key">currency_preference</string>
+    <string name="currency_preference_title">Exchange currency</string>
+    <string name="days_preference_key">days_preference</string>
+    <string name="days_preference_title">Days visible</string>
+
 </resources>

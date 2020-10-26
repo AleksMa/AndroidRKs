@@ -1,7 +1,11 @@
 package com.bmstu.iu9.swimrunners.androidrk1.activities
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -27,5 +31,23 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.main_fragment)
 
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val itemID: Int = item.itemId
+
+        if (itemID == R.id.settings_menu_item) {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        } else if (itemID == R.id.refresh_menu_item) {
+            // TODO: fix!
+            Toast.makeText(this, "FIXME!", Toast.LENGTH_SHORT).show()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }
