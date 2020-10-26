@@ -1,10 +1,11 @@
-package com.bmstu.iu9.swimrunners.androidrk1
+package com.bmstu.iu9.swimrunners.androidrk1.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bmstu.iu9.swimrunners.androidrk1.R
 
 
 class ExtraInfoFragment : Fragment() {
