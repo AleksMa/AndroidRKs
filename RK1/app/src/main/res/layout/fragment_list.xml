@@ -7,6 +7,12 @@
     android:padding="@dimen/spacing_m"
     tools:context=".fragments.ListFragment">
 
+    <Button
+        android:id="@+id/crypto_pick_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
     <TextView
         android:id="@+id/error"
         android:layout_width="wrap_content"

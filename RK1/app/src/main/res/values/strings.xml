@@ -11,10 +11,12 @@
     <string name="crypto_btc">BTC</string>
     <string name="crypto_doge">DOGE</string>
     <string name="crypto_ltc">LTC</string>
+    <string name="crypto_eth">ETH</string>
 
     <string name="crypto_btc_key">Bitcoin</string>
     <string name="crypto_doge_key">DogeCoin</string>
     <string name="crypto_ltc_key">Litecoin</string>
+    <string name="crypto_eth_key">Ethereum</string>
 
     <!--    Menu-->
     <string name="settings_menu_item">SETTINGS</string>
@@ -25,4 +27,7 @@
     <string name="days_preference_key">days_preference</string>
     <string name="days_preference_title">Days visible</string>
 
+    <!--    Other-->
+    <string name="choose_crypto_type">Choose crypto type</string>
+    <string name="ok">OK</string>
 </resources>

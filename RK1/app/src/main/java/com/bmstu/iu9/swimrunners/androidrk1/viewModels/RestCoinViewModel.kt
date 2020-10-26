@@ -19,14 +19,10 @@ class RestCoinViewModel : ViewModel() {
     val error: LiveData<String>
         get() = _error
 
-    init {
-        loadTimeseries()
-    }
-
-    private fun loadTimeseries() {
+    fun loadTimeseries(from: String) {
         viewModelScope.launch {
             try {
-                val rawTimeseries = RestCoinApi.service.getTimeseries()
+                val rawTimeseries = RestCoinApi.service.getTimeseries(from)
                 _timeseries.postValue(rawTimeseries.map { rawDayTrades ->
                     DayTrades(
                         date = mapDate(rawDayTrades.day),
@@ -50,7 +46,7 @@ class RestCoinViewModel : ViewModel() {
             .first()
             .split("-")
             .reversed()
-            .slice(0..2)
+            .slice(0..1)
             .joinToString(".")
     }
 }
