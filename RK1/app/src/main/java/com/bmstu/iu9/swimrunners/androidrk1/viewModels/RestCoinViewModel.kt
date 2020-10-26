@@ -15,6 +15,10 @@ class RestCoinViewModel(app: Application) : AndroidViewModel(app) {
     val timeseries: LiveData<List<DayTrades>>
         get() = _timeseries
 
+    private val _currency = MutableLiveData<String>()
+    val currency: LiveData<String>
+        get() = _currency
+
     private val _error = MutableLiveData<String>()
     val error: LiveData<String>
         get() = _error
@@ -36,6 +40,7 @@ class RestCoinViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             try {
                 val rawTimeseries = RestCoinApi.service.getTimeseries(from, currency, daysCount)
+                _currency.postValue(currency)
                 _timeseries.postValue(rawTimeseries.map { rawDayTrades ->
                     DayTrades(
                         date = mapDate(rawDayTrades.day),

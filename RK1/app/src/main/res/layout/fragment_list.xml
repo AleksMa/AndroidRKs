@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/spacing_m"
+    android:paddingTop="@dimen/spacing_m"
     tools:context=".fragments.ListFragment">
 
     <Button

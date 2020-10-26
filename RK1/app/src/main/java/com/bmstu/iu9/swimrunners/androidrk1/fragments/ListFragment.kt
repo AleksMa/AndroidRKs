@@ -55,6 +55,8 @@ class ListFragment : Fragment() {
             }
         })
 
+        vm.currency.observe(viewLifecycleOwner, { currency -> tradesAdapter.currency = currency })
+
         vm.timeseries.observe(viewLifecycleOwner, { timeseries ->
             run {
                 binding.error.visibility = View.GONE
@@ -94,10 +96,12 @@ class ListFragment : Fragment() {
         private val root = binding.root
         private val dateTextView = binding.date
         private val priceHighTextView = binding.priceHigh
+        private val currencyTextView = binding.currency
 
-        fun bind(dayTrade: DayTrades) {
+        fun bind(dayTrade: DayTrades, currency: String) {
             dateTextView.text = dayTrade.date
             priceHighTextView.text = dayTrade.priceHigh.toString()
+            currencyTextView.text = currency
 
             // TODO: Add navigation
 //            root.setOnClickListener { v ->
@@ -113,6 +117,7 @@ class ListFragment : Fragment() {
                 field = value
                 this.notifyDataSetChanged()
             }
+        var currency: String = ""
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TradesHolder {
             val inflater = LayoutInflater.from(parent.context)
@@ -122,7 +127,7 @@ class ListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: TradesHolder, position: Int) {
-            holder.bind(timeseries[position])
+            holder.bind(timeseries[position], currency)
         }
 
         override fun getItemCount(): Int {
