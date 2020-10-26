@@ -4,29 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/spacing_m"
+    android:paddingTop="@dimen/spacing_m"
     tools:context=".fragments.ListFragment">
-
 
     <TextView
         android:id="@+id/linkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="@string/link_title"
-        android:textColor="#2196F3"
-        android:layout_marginBottom="5dp"/>
+        android:textColor="#2196F3" />
+
+    <Button
+        android:id="@+id/crypto_pick_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/spacing_m"
         android:textSize="@dimen/text_size"
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/trades_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacing_m" />
 
 </LinearLayout>

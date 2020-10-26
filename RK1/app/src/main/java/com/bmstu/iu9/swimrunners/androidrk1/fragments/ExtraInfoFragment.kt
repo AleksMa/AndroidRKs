@@ -1,18 +1,15 @@
 package com.bmstu.iu9.swimrunners.androidrk1.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bmstu.iu9.swimrunners.androidrk1.databinding.FragmentExtraInfoBinding
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.bmstu.iu9.swimrunners.androidrk1.R
-import com.bmstu.iu9.swimrunners.androidrk1.databinding.FragmentListBinding
-import com.bmstu.iu9.swimrunners.androidrk1.models.DayTrades
+import com.bmstu.iu9.swimrunners.androidrk1.databinding.FragmentExtraInfoBinding
 import com.bmstu.iu9.swimrunners.androidrk1.viewModels.RestCoinViewModel
-
 
 class ExtraInfoFragment : Fragment() {
     private var _binding: FragmentExtraInfoBinding? = null

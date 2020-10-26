@@ -11,10 +11,12 @@
     <string name="crypto_btc">BTC</string>
     <string name="crypto_doge">DOGE</string>
     <string name="crypto_ltc">LTC</string>
+    <string name="crypto_eth">ETH</string>
 
     <string name="crypto_btc_key">Bitcoin</string>
     <string name="crypto_doge_key">DogeCoin</string>
     <string name="crypto_ltc_key">Litecoin</string>
+    <string name="crypto_eth_key">Ethereum</string>
 
     <!--    Menu-->
     <string name="settings_menu_item">SETTINGS</string>
@@ -24,6 +26,11 @@
     <string name="currency_preference_title">Exchange currency</string>
     <string name="days_preference_key">days_preference</string>
     <string name="days_preference_title">Days visible</string>
+    <string name="days_preference_default_value">10</string>
+
+    <!--    Other-->
+    <string name="choose_crypto_type">Choose crypto type</string>
+    <string name="ok">OK</string>
 
     <!--    Link-->
     <string name="link_title">Api documentation</string>
@@ -37,5 +44,4 @@
     <string name="extra_info_max_title">Highest price per day:   </string>
     <string name="extra_info_min_title">Lowest price per day: </string>
     <string name="extra_info_trades_title">Trades count per day: </string>
-
 </resources>

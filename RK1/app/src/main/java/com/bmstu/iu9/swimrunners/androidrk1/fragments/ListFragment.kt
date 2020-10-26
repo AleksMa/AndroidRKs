@@ -1,13 +1,12 @@
 package com.bmstu.iu9.swimrunners.androidrk1.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -18,13 +17,23 @@ import com.bmstu.iu9.swimrunners.androidrk1.databinding.FragmentListBinding
 import com.bmstu.iu9.swimrunners.androidrk1.databinding.ListItemBinding
 import com.bmstu.iu9.swimrunners.androidrk1.models.DayTrades
 import com.bmstu.iu9.swimrunners.androidrk1.viewModels.RestCoinViewModel
-import java.util.logging.Level.INFO
 
 class ListFragment : Fragment() {
+    companion object {
+        const val REQUEST_CRYPTO_TYPE = 1
+        const val DIALOG_CRYPTO_TAG = "CryptoType"
+        var currentCryptoType: String = "BTC"
+    }
+
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    val vm: RestCoinViewModel by activityViewModels()
+    private val vm: RestCoinViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        vm.loadTimeseries(currentCryptoType)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,6 +62,8 @@ class ListFragment : Fragment() {
             }
         })
 
+        vm.currency.observe(viewLifecycleOwner, { currency -> tradesAdapter.currency = currency })
+
         vm.timeseries.observe(viewLifecycleOwner, { timeseries ->
             run {
                 binding.error.visibility = View.GONE
@@ -61,9 +72,25 @@ class ListFragment : Fragment() {
             }
         })
 
-//        binding.buttonOpenSecond.setOnClickListener(
-//            Navigation.createNavigateOnClickListener(R.id.action_hostFragment_to_secondFragment)
-//        )
+        binding.cryptoPickBtn.text = currentCryptoType
+        binding.cryptoPickBtn.setOnClickListener {
+            val dialog = CryptoPickerFragment()
+            dialog.setTargetFragment(this, REQUEST_CRYPTO_TYPE)
+            dialog.show(parentFragmentManager, DIALOG_CRYPTO_TAG)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode != Activity.RESULT_OK || data == null) {
+            return
+        }
+
+        if (requestCode == REQUEST_CRYPTO_TYPE) {
+            val type = data.getStringExtra(CryptoPickerFragment.EXTRA_CRYPTO_TYPE)!!
+            currentCryptoType = type
+            binding.cryptoPickBtn.text = currentCryptoType
+            vm.loadTimeseries(currentCryptoType)
+        }
     }
 
     override fun onDestroyView() {
@@ -76,10 +103,12 @@ class ListFragment : Fragment() {
         private val root = binding.root
         private val dateTextView = binding.date
         private val priceHighTextView = binding.priceHigh
+        private val currencyTextView = binding.currency
 
-        fun bind(dayTrade: DayTrades, position: Int) {
+        fun bind(dayTrade: DayTrades, position: Int, currency: String) {
             dateTextView.text = dayTrade.date
             priceHighTextView.text = dayTrade.priceHigh.toString()
+            currencyTextView.text = currency
 
             root.setOnClickListener { v ->
                 val action = ListFragmentDirections.actionHostFragmentToSecondFragment(position)
@@ -94,6 +123,7 @@ class ListFragment : Fragment() {
                 field = value
                 this.notifyDataSetChanged()
             }
+        var currency: String = ""
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TradesHolder {
             val inflater = LayoutInflater.from(parent.context)
@@ -103,7 +133,7 @@ class ListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: TradesHolder, position: Int) {
-            holder.bind(timeseries[position], position)
+            holder.bind(timeseries[position], position, currency)
         }
 
         override fun getItemCount(): Int {
