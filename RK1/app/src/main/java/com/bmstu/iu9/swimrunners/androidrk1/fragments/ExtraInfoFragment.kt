@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
-import com.bmstu.iu9.swimrunners.androidrk1.R
 import com.bmstu.iu9.swimrunners.androidrk1.databinding.FragmentExtraInfoBinding
 import com.bmstu.iu9.swimrunners.androidrk1.viewModels.RestCoinViewModel
 
@@ -17,10 +16,6 @@ class ExtraInfoFragment : Fragment() {
 
     private val args: ExtraInfoFragmentArgs by navArgs()
     private val vm: RestCoinViewModel by activityViewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,9 +30,9 @@ class ExtraInfoFragment : Fragment() {
         vm.timeseries.observe(viewLifecycleOwner, { timeseries ->
             run {
                 binding.extraInfoTitle.text = timeseries[args.index].date
-                binding.extraInfoMax.text = getString(R.string.extra_info_max_title) + timeseries[args.index].priceHigh.toString()
-                binding.extraInfoMin.text = getString(R.string.extra_info_min_title) + timeseries[args.index].priceLow.toString()
-                binding.extraInfoTrades.text = getString(R.string.extra_info_trades_title) + timeseries[args.index].tradesCount.toString()
+                binding.extraInfoMax.text = timeseries[args.index].priceHigh
+                binding.extraInfoMin.text = timeseries[args.index].priceLow
+                binding.extraInfoTrades.text = timeseries[args.index].tradesCount.toString()
             }
         })
     }

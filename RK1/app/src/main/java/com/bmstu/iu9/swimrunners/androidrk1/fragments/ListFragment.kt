@@ -107,7 +107,7 @@ class ListFragment : Fragment() {
 
         fun bind(dayTrade: DayTrades, position: Int, currency: String) {
             dateTextView.text = dayTrade.date
-            priceHighTextView.text = dayTrade.priceHigh.toString()
+            priceHighTextView.text = dayTrade.priceHigh
             currencyTextView.text = currency
 
             root.setOnClickListener { v ->
