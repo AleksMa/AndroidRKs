@@ -7,6 +7,14 @@
     android:paddingTop="@dimen/spacing_m"
     tools:context=".fragments.ListFragment">
 
+    <TextView
+        android:id="@+id/linkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/link_title"
+        android:textColor="#2196F3" />
+
     <Button
         android:id="@+id/crypto_pick_btn"
         android:layout_width="wrap_content"

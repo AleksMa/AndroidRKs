@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
 
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
 def apikeyProperties = new Properties()
@@ -31,6 +32,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 
     kotlinOptions {

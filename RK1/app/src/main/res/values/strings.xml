@@ -31,4 +31,17 @@
     <!--    Other-->
     <string name="choose_crypto_type">Choose crypto type</string>
     <string name="ok">OK</string>
+
+    <!--    Link-->
+    <string name="link_title">Api documentation</string>
+    <string name="link_value">https://docs.coinapi.io/#md-docs</string>
+
+    <!--    Fragment titles-->
+    <string name="list_fragment_title">Exchange days</string>
+    <string name="extra_info_fragment_title">Day extra info</string>
+
+    <!--    Extra info-->
+    <string name="extra_info_max_title">Highest price per day:   </string>
+    <string name="extra_info_min_title">Lowest price per day: </string>
+    <string name="extra_info_trades_title">Trades count per day: </string>
 </resources>

@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/hostFragment"
         android:name="com.bmstu.iu9.swimrunners.androidrk1.fragments.ListFragment"
-        android:label="fragment_host"
-        tools:layout="@layout/fragment_list" >
+        android:label="@string/list_fragment_title"
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_hostFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
@@ -17,6 +17,11 @@
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.bmstu.iu9.swimrunners.androidrk1.fragments.ExtraInfoFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_extra_info" />
+        android:label="@string/extra_info_fragment_title"
+        tools:layout="@layout/fragment_extra_info">
+
+        <argument
+            android:name="index"
+            app:argType="integer" />
+    </fragment>
 </navigation>

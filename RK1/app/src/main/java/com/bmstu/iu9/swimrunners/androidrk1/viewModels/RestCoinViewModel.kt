@@ -49,7 +49,7 @@ class RestCoinViewModel(app: Application) : AndroidViewModel(app) {
                         priceLow = rawDayTrades.priceLow.roundToInt(),
                         priceClose = rawDayTrades.priceClose.roundToInt(),
                         volumeTraded = rawDayTrades.volumeTraded.roundToInt(),
-                        tradesCount = rawDayTrades.tradesCount,
+                        tradesCount = rawDayTrades.tradesCount
                     )
                 })
             } catch (e: Exception) {
