@@ -1,10 +1,10 @@
 package com.bmstu.iu9.swimrunners.androidrk1.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -12,21 +12,21 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.preference.PreferenceManager
 import com.bmstu.iu9.swimrunners.androidrk1.R
 import com.bmstu.iu9.swimrunners.androidrk1.fragments.ListFragment
 import com.bmstu.iu9.swimrunners.androidrk1.viewModels.RestCoinViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ThemeCustomizable {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private val vm: RestCoinViewModel by viewModels()
 
     private lateinit var fab: FloatingActionButton
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        applyTheme(PreferenceManager.getDefaultSharedPreferences(application))
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -61,5 +61,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun applyTheme(prefs: SharedPreferences) {
+        if (prefs.getBoolean(getString(R.string.theme_preference_key), false)) {
+            setTheme(R.style.AppThemeDark)
+        } else {
+            setTheme(R.style.AppTheme)
+        }
     }
 }

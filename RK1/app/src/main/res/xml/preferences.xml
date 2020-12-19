@@ -1,4 +1,15 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory>
+
+        <SwitchPreference
+            android:title="@string/theme"
+            app:key="@string/theme_preference_key"
+            app:summaryOff="@string/light_theme"
+            app:summaryOn="@string/dark_theme" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory>
 
